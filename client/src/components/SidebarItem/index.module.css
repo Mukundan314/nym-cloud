@@ -2,14 +2,23 @@
   display: flex;
   align-items: center;
   color: var(--sidebarItem-color);
-  margin: 15px;
-  padding: 10px;
+  margin: 0 15px;
+  padding: 12px;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebarItem:hover {
+  background-color: var(--sidebarItem-hover);
 }
 
 .sidebarItemSelected {
   background-color: var(--sidebarItem-selected);
   font-weight: 600;
+}
+
+.sidebarItemSelected:hover {
+  background-color: var(--sidebarItem-selected);
 }
 
 .sideBarItemText {
