@@ -1,0 +1,14 @@
+.app {
+  display: flex;
+  height: 100%;
+}
+
+.themeDark {
+  --sidebar-background: #383838;
+  --sidebarItem-color: #c0c0c0;
+  --fileView-background: #1e1e1e;
+}
+
+.themeLight {
+  --sidebar-background: #c7c7c7;
+}
