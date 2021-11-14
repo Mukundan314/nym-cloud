@@ -1,0 +1,18 @@
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  color: var(--sidebarItem-color);
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebarItemSelected {
+  background-color: var(--sidebarItem-selected);
+  font-weight: 600;
+}
+
+.sideBarItemText {
+  margin-left: 20px;
+  font-size: 16px;
+}
