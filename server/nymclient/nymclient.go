@@ -15,26 +15,37 @@ const (
 	errorResponseTag       = 0x00
 	receivedResponseTag    = 0x01
 	selfAddressResponseTag = 0x02
+
+	errCodeEmptyRequest     = 0x01
+	errCodeTooShortRequest  = 0x02
+	errCodeUnknownRequest   = 0x03
+	errCodeMalformedRequest = 0x03
+
+	errCodeEmptyResponse     = 0x80
+	errCodeTooShortResponse  = 0x81
+	errCodeUnknownResponse   = 0x82
+	errCodeMalformedResponse = 0x83
+
+	errCodeOther = 0xff
 )
 
-type NymClient struct {
+type Client struct {
 	SelfAddress []byte
 	conn        *websocket.Conn
 	writeMutex  sync.Mutex
+	readMutex   sync.Mutex
 }
 
-func NewNymClient(clientUri string) (*NymClient, error) {
+func New(clientUri string) (*Client, error) {
 	conn, _, err := websocket.DefaultDialer.Dial(clientUri, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	return &NymClient{
-		conn: conn,
-	}, nil
+	return &Client{conn: conn}, nil
 }
 
-func (n *NymClient) Send(recipient []byte, message []byte, withReplySurb bool) error {
+func (c *Client) Send(recipient []byte, message []byte, withReplySurb bool) error {
 	messageLen := make([]byte, 8)
 	binary.BigEndian.PutUint64(messageLen, uint64(len(message)))
 
@@ -44,18 +55,18 @@ func (n *NymClient) Send(recipient []byte, message []byte, withReplySurb bool) e
 	}
 
 	data := []byte{sendRequestTag, surbByte}
-	data = append(out, recipient...)
-	data = append(out, messageLen...)
-	data = append(out, message...)
+	data = append(data, recipient...)
+	data = append(data, messageLen...)
+	data = append(data, message...)
 
-	n.writeMutex.Lock()
-	err := n.conn.WriteMessage(websocket.BinaryMessage, data)
-	n.writeMutex.Unlock()
+	c.writeMutex.Lock()
+	err := c.conn.WriteMessage(websocket.BinaryMessage, data)
+	c.writeMutex.Unlock()
 
 	return err
 }
 
-func (n *NymClient) Reply(replySURB []byte, message []byte) {
+func (c *Client) Reply(replySURB []byte, message []byte) error {
 	messageLen := make([]byte, 8)
 	binary.BigEndian.PutUint64(messageLen, uint64(len(message)))
 
@@ -63,22 +74,24 @@ func (n *NymClient) Reply(replySURB []byte, message []byte) {
 	binary.BigEndian.PutUint64(surbLen, uint64(len(replySURB)))
 
 	data := []byte{replyRequestTag}
-	data = append(out, surbLen...)
-	data = append(out, replySURB...)
-	data = append(out, messageLen...)
-	data = append(out, message...)
+	data = append(data, surbLen...)
+	data = append(data, replySURB...)
+	data = append(data, messageLen...)
+	data = append(data, message...)
 
-	n.writeMutex.Lock()
-	err := n.conn.WriteMessage(websocket.BinaryMessage, data)
-	n.writeMutex.Unlock()
+	c.writeMutex.Lock()
+	err := c.conn.WriteMessage(websocket.BinaryMessage, data)
+	c.writeMutex.Unlock()
 
 	return err
 }
 
-func (n *NymClient) Recv() {
-	// TODO
+func (c *Client) Recv() {
+	// c.readMutex.Lock()
+	// messageType, rawResponse, err := c.conn.ReadMessage()
+	// c.readMutex.Unlock()
 }
 
-func (n *NymClient) Close() error {
-	return n.conn.Close()
+func (c *Client) Close() error {
+	return c.conn.Close()
 }
