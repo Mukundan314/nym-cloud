@@ -36,9 +36,27 @@ func main() {
 	log.WithField("nymClient", *nymClientUri).Debug("Successfully connected to the nym client")
 
 	for {
-		_, err := client.Recv()
+		resp, err := client.Recv()
 		if err != nil {
 			log.WithError(err).Error("An error occurred when receiving data from the nym client")
+		}
+
+		if resp.Type == "error" {
+			log.WithFields(log.Fields{
+				"code": resp.Error.Code,
+				"msg": string(resp.Error.Message), // TODO: Verify that this is guaranteed to be a printable string
+			}).Error("Received an error response from the nym client")
+			continue
+		}
+
+		if resp.Type == "selfAddress" {
+			log.WithField("address", resp.SelfAddress).Warn("Unexpectedly received a selfAddress response from the nym client")
+			continue
+		}
+
+		if resp.Type != "received" {
+			log.WithField("type", resp.Type).Warn("Received unknown response type from the nym client")
+			continue
 		}
 	}
 }
