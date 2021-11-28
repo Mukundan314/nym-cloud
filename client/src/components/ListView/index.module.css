@@ -1,0 +1,17 @@
+.listView {
+  margin: 30px;
+  margin-top: 50px;
+}
+
+.fields {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  color: var(--listView-text);
+  border-bottom: 1px solid var(--listView-text);
+}
+
+.displayTypeIcon {
+  color: var(--icon);
+  cursor: pointer;
+}
