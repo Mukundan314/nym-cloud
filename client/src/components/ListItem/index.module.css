@@ -1,0 +1,14 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px;
+  color: var(--text);
+}
+
+.listItemHighlighted {
+  background-color: var(--listItem-highlighted);
+}
+
+.itemIcon {
+  margin: 0px 10px;
+}
