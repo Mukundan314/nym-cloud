@@ -17,5 +17,3 @@ const SearchBar = () => (
 );
 
 export default SearchBar;
-
-// style={{ backgroundColor: "transparent", border: 0 }}

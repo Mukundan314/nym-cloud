@@ -5,5 +5,21 @@
 }
 
 .toolBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 20px 15px;
+}
+
+.options {
+  display: flex;
+  flex: 2;
+  color: var(--icon);
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.optionsIcon {
+  margin-right: 24px;
+  font-size: 24px;
 }
