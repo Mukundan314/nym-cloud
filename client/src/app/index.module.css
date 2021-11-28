@@ -6,6 +6,7 @@
 .themeDark {
   --text: whitesmoke;
   --icon: #c0c0c0;
+  --sectionHeader-text: #b0b0b0;
   --searchBar-background: #3f3f3f;
   --searchBar-placeholder: #8a8787;
   --sidebar-background: #383838;

@@ -1,0 +1,13 @@
+.upload {
+  margin-right: 10px;
+}
+
+.uploadButton {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--icon);
+  font-weight: 600;
+  border: 1px solid var(--icon);
+  cursor: pointer;
+}

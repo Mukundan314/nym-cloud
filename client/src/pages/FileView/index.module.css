@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 15px;
+  margin: 30px;
 }
 
 .options {
@@ -22,4 +22,17 @@
 .optionsIcon {
   margin-right: 24px;
   font-size: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 30px 20px 30px;
+}
+
+.sectionName {
+  font-size: 28px;
+  color: var(--sectionHeader-text);
+  font-weight: 600;
 }

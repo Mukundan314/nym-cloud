@@ -2,6 +2,7 @@ import React from "react";
 import * as styles from "./index.module.css";
 import SearchBar from "../../components/SearchBar";
 import Profile from "../../components/Profile";
+import Upload from "../../components/Upload";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faQuestionCircle,
@@ -24,6 +25,10 @@ const FileView = () => (
         </div>
         <Profile />
       </div>
+    </div>
+    <div className={styles.sectionHeader}>
+      <div className={styles.sectionName}>All Files</div>
+      <Upload />
     </div>
   </div>
 );
