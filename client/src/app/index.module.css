@@ -4,6 +4,10 @@
 }
 
 .themeDark {
+  --text: whitesmoke;
+  --icon: #c0c0c0;
+  --searchBar-background: #3f3f3f;
+  --searchBar-placeholder: #8a8787;
   --sidebar-background: #383838;
   --sidebarItem-color: #c0c0c0;
   --sidebarItem-selected: #2d2c2c;

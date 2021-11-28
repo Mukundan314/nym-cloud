@@ -3,8 +3,8 @@ import SidebarItem from "../SidebarItem";
 import * as styles from "./index.module.css";
 import propTypes from "prop-types";
 import { tabs } from "../../constants/sidebar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserLock } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faUserLock } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = ({ tab, setTab }) => {
   const onClick = (id) => {
@@ -13,9 +13,9 @@ const Sidebar = ({ tab, setTab }) => {
 
   return (
     <div className={styles.sidebar}>
-      <div className={styles.logo}>
+      {/* <div className={styles.logo}>
         <FontAwesomeIcon icon={faUserLock} />
-      </div>
+      </div> */}
       <div className={styles.sideBarItems}>
         {tabs.map(({ name, id, icon }) => (
           <SidebarItem
