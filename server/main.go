@@ -10,6 +10,7 @@ import (
 var (
 	nymClientUri = flag.String("n", "ws://localhost:1977", "uri to a nym-client")
 	logLevel     = flag.String("l", "info", "log level to use; available options are debug, info, warn and error")
+	storageDir   = flag.String("s", "./storage", "storage directory to use")
 )
 
 func main() {
@@ -35,7 +36,7 @@ func main() {
 	defer client.Close()
 	log.WithField("nymClient", *nymClientUri).Debug("Successfully connected to the nym client")
 
-	handler := requestHandler{Client: client}
+	handler := requestHandler{Client: client, StorageDir: *storageDir}
 
 	for {
 		resp, err := client.Recv()
@@ -61,6 +62,6 @@ func main() {
 			continue
 		}
 
-		go handler.handle(*resp.Received)
+		go handler.Handle(*resp.Received)
 	}
 }
