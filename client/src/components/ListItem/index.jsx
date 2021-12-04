@@ -25,7 +25,7 @@ const ListItem = ({ name, date, size, idx, selected, onSelect }) => (
 
 ListItem.propTypes = {
   name: propTypes.string.isRequired,
-  date: propTypes.string.isRequired,
+  date: propTypes.number.isRequired,
   size: propTypes.string.isRequired,
   idx: propTypes.number.isRequired,
   selected: propTypes.bool.isRequired,

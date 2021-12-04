@@ -10,15 +10,17 @@ const ListView = ({ search }) => {
   return (
     <div className={styles.listView}>
       <div className={styles.fields}>
-        {fields.map((field) => (
-          <div className={styles.cell}>{field}</div>
+        {fields.map((field, idx) => (
+          <div className={styles.cell} key={`${field}-${idx}`}>
+            {field}
+          </div>
         ))}
       </div>
       <div>
         {files
           .filter(({ name }) => name.includes(search))
           .map((file, idx) => (
-            <div className={styles.listItem}>
+            <div className={styles.listItem} key={`${file.name}-${idx}`}>
               <ListItem
                 name={file.name}
                 date={file.date}

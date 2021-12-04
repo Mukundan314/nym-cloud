@@ -19,6 +19,7 @@ const Sidebar = ({ tab, setTab }) => {
       <div className={styles.sideBarItems}>
         {tabs.map(({ name, id, icon }) => (
           <SidebarItem
+            key={id}
             text={name}
             selected={tab === id}
             icon={icon}

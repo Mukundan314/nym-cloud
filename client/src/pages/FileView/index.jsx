@@ -5,11 +5,7 @@ import Profile from "../../components/Profile";
 import Upload from "../../components/Upload";
 import ListView from "../../components/ListView";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faQuestionCircle,
-  faBell,
-  faCog,
-} from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 
 const FileView = () => {
   const [search, setSearch] = useState("");
@@ -24,8 +20,6 @@ const FileView = () => {
               icon={faQuestionCircle}
               className={styles.optionsIcon}
             />
-            <FontAwesomeIcon icon={faCog} className={styles.optionsIcon} />
-            <FontAwesomeIcon icon={faBell} className={styles.optionsIcon} />
           </div>
           <Profile />
         </div>

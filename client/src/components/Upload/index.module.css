@@ -1,3 +1,17 @@
+.upload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  padding: 15px;
+}
+
 .uploadButton {
   padding: 15px;
   border-radius: 5px;
@@ -5,5 +19,4 @@
   color: var(--icon);
   font-weight: 600;
   border: 1px solid var(--icon);
-  cursor: pointer;
 }
