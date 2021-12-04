@@ -19,7 +19,8 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "@nymproject/nym-client-wasm": "file:nym-client-wasm"
   },
   "scripts": {
     "start": "react-scripts start",
