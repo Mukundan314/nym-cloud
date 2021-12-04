@@ -19,4 +19,5 @@
   color: var(--icon);
   font-weight: 600;
   border: 1px solid var(--icon);
+  font-size: 12px;
 }

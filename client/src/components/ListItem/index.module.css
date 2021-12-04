@@ -1,8 +1,9 @@
 .listItem {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0px;
+  padding: 8px 0px;
   color: var(--text);
+  font-size: 14px;
 }
 
 .listItem:hover {
