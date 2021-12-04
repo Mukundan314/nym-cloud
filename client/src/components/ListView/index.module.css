@@ -15,3 +15,7 @@
   color: var(--icon);
   cursor: pointer;
 }
+
+.cell {
+  flex: 1;
+}

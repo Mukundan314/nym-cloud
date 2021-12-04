@@ -12,3 +12,7 @@
 .itemIcon {
   margin: 0px 10px;
 }
+
+.cell {
+  flex: 1;
+}
