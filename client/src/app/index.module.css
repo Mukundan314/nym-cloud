@@ -9,6 +9,8 @@
   --sectionHeader-text: #b0b0b0;
   --listView-text: #969696;
   --listItem-highlighted: #292929;
+  --listItem-hover: #3f3f3f;
+  --listItem-selected: #0158cf;
   --searchBar-background: #3f3f3f;
   --searchBar-placeholder: #8a8787;
   --sidebar-background: #383838;

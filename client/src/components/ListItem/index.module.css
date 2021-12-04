@@ -5,8 +5,21 @@
   color: var(--text);
 }
 
+.listItem:hover {
+  background-color: var(--listItem-hover);
+  cursor: pointer;
+}
+
 .listItemHighlighted {
   background-color: var(--listItem-highlighted);
+}
+
+.listItemSelected {
+  background-color: var(--listItem-selected);
+}
+
+.listItemSelected:hover {
+  background-color: var(--listItem-selected);
 }
 
 .itemIcon {
