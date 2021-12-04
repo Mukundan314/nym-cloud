@@ -15,7 +15,7 @@ const ListItem = ({ name, date, size, idx }) => (
       <FontAwesomeIcon icon={faFile} className={styles.itemIcon} />
       {name}
     </div>
-    <div className={styles.cell}>{date}</div>
+    <div className={styles.cell}>{new Date(date).toLocaleString()}</div>
     <div className={styles.cell}>{size}</div>
   </div>
 );

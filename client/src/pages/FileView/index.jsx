@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as styles from "./index.module.css";
 import SearchBar from "../../components/SearchBar";
 import Profile from "../../components/Profile";
@@ -11,28 +11,32 @@ import {
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
 
-const FileView = () => (
-  <div className={styles.file}>
-    <div className={styles.toolBar}>
-      <SearchBar />
-      <div className={styles.options}>
-        <div>
-          <FontAwesomeIcon
-            icon={faQuestionCircle}
-            className={styles.optionsIcon}
-          />
-          <FontAwesomeIcon icon={faCog} className={styles.optionsIcon} />
-          <FontAwesomeIcon icon={faBell} className={styles.optionsIcon} />
+const FileView = () => {
+  const [search, setSearch] = useState("");
+
+  return (
+    <div className={styles.file}>
+      <div className={styles.toolBar}>
+        <SearchBar search={search} setSearch={setSearch} />
+        <div className={styles.options}>
+          <div>
+            <FontAwesomeIcon
+              icon={faQuestionCircle}
+              className={styles.optionsIcon}
+            />
+            <FontAwesomeIcon icon={faCog} className={styles.optionsIcon} />
+            <FontAwesomeIcon icon={faBell} className={styles.optionsIcon} />
+          </div>
+          <Profile />
         </div>
-        <Profile />
       </div>
+      <div className={styles.sectionHeader}>
+        <div className={styles.sectionName}>All Files</div>
+        <Upload />
+      </div>
+      <ListView search={search} />
     </div>
-    <div className={styles.sectionHeader}>
-      <div className={styles.sectionName}>All Files</div>
-      <Upload />
-    </div>
-    <ListView />
-  </div>
-);
+  );
+};
 
 export default FileView;
